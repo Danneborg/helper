@@ -1,0 +1,13 @@
+body{
+    background: url(/template/images/7135.jpg) no-repeat;;
+    background-size: 100%;
+}
+h1{
+    color: white;
+}
+p{
+    margin-top: 40px;
+}
+.row-bottom{
+    margin-top: 50px;
+}
