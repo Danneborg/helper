@@ -3,7 +3,10 @@
 class StartpageController {
 
     public function actionIndex() {
-        echo 'StrartPageController actionIndex';
+
+
+        //include_once '/views/startpage.php';
+        echo 'Start page';
         return true;
     }
 

@@ -8,18 +8,11 @@
         <title>Инструкции</title>
 
         <!-- Bootstrap -->
-        <link href="/style/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/style/css/style.css" rel="stylesheet">
+        <link href="/template/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/template/css/style.css" rel="stylesheet">
 
     </head>
     <body>
-        <?php
-//            if(isset($_FILES['filename'])){
-//                $name_file = $_FILES['filename']['name'];
-//                $tmp_name = $_FILES['filename']['tmp_name'];
-//                move_uploaded_file($tmp_name, $_SERVER['DOCUMENT_ROOT']."/instructions/".$name_file);
-//            }
-        ?>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
@@ -45,6 +38,6 @@
             </div>
         </div>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="/style/js/bootstrap.min.js"></script>
+        <script src="/template/js/bootstrap.min.js"></script>
     </body>
 </html>

@@ -1,7 +1,9 @@
 <?php
 
 return array(
+    'staff/([0-9]+)' => 'staff/view/$1', //actionView в StaffController
     'startpage' => 'startpage/index', //actionIndex в StartpageController
     'instructions' => 'instructions/index', //actionIndex в InstructionsController
-    'worker' => 'worker/index', //actionIndex в WorkerIndexController
+    'worker' => 'worker/index', //actionIndex в WorkerController
+    'staff' => 'staff/index', //actionIndex в StaffController
 );
