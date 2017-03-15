@@ -19,7 +19,7 @@
                 <div class="col-lg-10 col-lg-offset-4 row-bottom">
                     <h2>
                         <p><a href="views/instruction.php">Работа с интрукциями</a></p>
-                        <p><a href="views/worker.php">Добавление струдников</a></p>
+                        <p><a href="views/staff/add_co_worker.php">Добавление струдников</a></p>
                         <p><a href="views/subbota.php">Составление списка на субботу</a></p>
                     </h2>
                 </div>

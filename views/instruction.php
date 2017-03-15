@@ -42,4 +42,7 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="/template/js/bootstrap.min.js"></script>
     </body>
+    <footer>
+        <a href="/startpage">На главную</a>
+    </footer>
 </html>

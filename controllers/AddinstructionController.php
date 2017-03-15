@@ -20,7 +20,12 @@ class AddinstructionController {
             UploadFile::uploadFiles();
             Instruction::addInstruction($array);
         } else {
-            $file = "Имя файла не указано!";
+            $file ="Не указано имя!";
+            $array[0] = $number;
+            $array[1] = $name;
+            $array[2] = $date;
+            $array[3] = $file;
+            Instruction::addInstruction($array);
         }
         include_once '/views/instruction.php';
         return true;
