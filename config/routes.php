@@ -5,6 +5,7 @@ return array(
     'startpage' => 'startpage/index', //actionIndex в StartpageController
     'instructions/addinstruction' => 'addinstruction/index', //actionIndex в AddInstructioController
     'instructions' => 'instructions/index', //actionIndex в InstructionsController
+    'worker/show' => 'worker/show',//actionShow в WorkerController
     'worker' => 'worker/index', //actionIndex в WorkerController
     'staff' => 'staff/index', //actionIndex в StaffController
     '' => 'startpage/index', //actionIndex в StartpageController

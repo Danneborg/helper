@@ -6,5 +6,10 @@ class WorkerController {
         echo 'WorkerController actionIndex';
         return true;
     }
-
+    public function actionShow() {
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+        return true;
+    }
 }
