@@ -11,4 +11,22 @@ class Instruction {
         }
     }
 
+    public static function getAllInstructions() {
+        $db = Db::getConnection();
+        $result = $db->query("SELECT `number`, `name` FROM `Instructions` "
+                . "WHERE 1 ORDER BY 'number' ASC");
+        $i = 0;
+        $instrList = array();
+        while ($row = $result->fetch()) {
+            $instrList[$i]['number'] = $row["number"];
+            $instrList[$i]['name'] = $row["name"];
+            $i++;
+        }
+        return $instrList;
+    }
+
+    public function getInstructionByNumber($number) {
+        
+    }
+
 }

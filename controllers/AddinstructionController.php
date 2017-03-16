@@ -20,7 +20,7 @@ class AddinstructionController {
             UploadFile::uploadFiles();
             Instruction::addInstruction($array);
         } else {
-            $file ="Не указано имя!";
+            $file = "Не указано имя!";
             $array[0] = $number;
             $array[1] = $name;
             $array[2] = $date;

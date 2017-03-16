@@ -12,4 +12,7 @@ class WorkerController {
         echo '</pre>';
         return true;
     }
+    public function actionFillview() {
+        
+    }
 }

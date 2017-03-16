@@ -19,7 +19,7 @@
         </header>
         <div class="container">
             <div class="row">  
-                <div class="login-block col-lg-3 col-lg-offset-0">
+                <div class="login-block col-lg-3 col-lg-offset-1">
                     <form method="post" action="/worker/show" id = "add">
                         <input type="text" name = "name" placeholder="Фамилия" />
                         <input type="text" name = "lastname" placeholder="Имя" />
@@ -32,28 +32,26 @@
                     </form>
                 </div>
                 <div class="login-block col-lg-3 col-lg-offset-1">
-                    <div class="margins">
-                        <input type="checkbox" class="checkbox" id="checkbox" name ="instr1" value ="instr1" form="add" />
-                        <label for="checkbox">Я переключаю чекбокс</label>
-                    </div>
-                    <div class="margins">
-                        <input type="checkbox" class="checkbox" id="checkbox1" name ="instr2" value ="instr2" form="add"/>
-                        <label for="checkbox1">Я переключаю чекбокс</label>
-                    </div>
+                    <?php
+                    for ($i = 0; $i < count($arr) / 2; $i++) { ?>
+                        <div class="margins">
+                            <font size = 2>
+                            <input type="checkbox" class="checkbox" id="<?php echo $i ?>" name ="<?php echo $arr[$i]['number'] ?>" value ="<?php echo $arr[$i]['number'] ?>" form="add" />
+                            <label for="<?php echo $i ?>"><?php echo $arr[$i]['number']." ".$arr[$i]['name'] ?></label>
+                            </font>
+                        </div>
+                    <?php } ?>
                 </div>
                 <div class="login-block col-lg-3 col-lg-offset-1">
-                    <div class="margins">
-                        <input type="checkbox" class="checkbox" id="checkbox2" name ="instr3" value ="instr3" form="add" />
-                        <label for="checkbox2">Я переключаю чекбокс</label>
-                    </div>
-                    <div class="margins">
-                        <input type="checkbox" class="checkbox" id="checkbox3" name ="instr4" value ="instr4"  form="add" />
-                        <label for="checkbox3">Я переключаю чекбокс</label>
-                    </div>
-                    <div class="margins">
-                        <input type="checkbox" class="checkbox" id="checkbox4" name ="instr5" value ="instr5"  form="add" />
-                        <label for="checkbox4">Я переключаю чекбокс</label>
-                    </div>
+                    <font size = 2>
+                    <?php
+                    for (count($arr) / 2; $i < count($arr); $i++) { ?>
+                        <div class="margins">
+                            <input type="checkbox" class="checkbox" id="<?php echo $i ?>" name ="<?php echo $arr[$i]['number'] ?>" value ="<?php echo $arr[$i]['number'] ?>" form="add" />
+                            <label for="<?php echo $i ?>"><?php echo $arr[$i]['number']." ".$arr[$i]['name'] ?></label>
+                        </div>
+                    <?php } ?>
+                    </font>
                 </div>
             </div>
         </div>
