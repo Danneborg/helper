@@ -14,6 +14,29 @@ class Staff {
         }
     }
 
+    public static function addWorker($meta, $instr) {
+        $db = Db::getConnection();
+        $name = $meta['name'];
+        $lastname = $meta['lastname'];
+        $surname = $meta['surname'];
+        $birthyear = $meta['birthyear'];
+        $tabNum = $meta['tabNum'];
+        $proff = $meta['proff'];
+        $education = $meta['education'];
+        $resultStaff = "INSERT INTO `Staff`(`tabNumber`, `surname`, `name`, `lastname`, `profession`, `education`, `birthyear`) "
+                . "VALUES ('$tabNum','$surname','$name','$lastname','$proff','$education','$birthyear')";
+        $db->query($resultStaff);
+        if (count($instr) > 1) {
+            foreach ($instr as $val) {
+                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES ( NULL , $tabNum , $val)";
+                $db->query($resultStaffInstr);
+            }
+        } else {
+            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES (NULL, $tabNum , $instr)";
+            $db->query($resultStaffInstr);
+        }
+    }
+
     public static function getAllStaff() {
 
         $db = Db::getConnection();

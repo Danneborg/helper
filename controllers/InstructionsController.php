@@ -37,9 +37,7 @@ class InstructionsController {
     }
 
     public function actionShow() {
-        $arr = Instruction::getAllInstructions();
-        include_once '/views/staff/add_co_worker.php';
-        return true;
+        
     }
 
 }
