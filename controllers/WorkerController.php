@@ -27,6 +27,8 @@ class WorkerController {
             $instr = array_shift($_POST);
         }
         Staff::addWorker($staffMeta,$instr);
+        $arr = Instruction::getAllInstructions();
+        include_once '/views/staff/add_co_worker.php';
         return true;
     }
 

@@ -27,8 +27,8 @@
                         <input type="text"  name = "tabNum" placeholder="Табельный номер" required/>
                         <input type="text"  name = "proff" placeholder="Профессия" required />
                         <input type="text"  name = "education" placeholder="Образование" required /> 
-                        <input type="submit" value="Добавить" />
-                    </form>
+                        <input type="submit" value="Добавить"   />
+                    </form>  
                 </div>
                 <!--!!!!!!!!!!!!!!!!!!Первый стоблец!!!!!!!!!!!!!!!!!!!!!-->
                 <div class="login-block col-lg-3 col-lg-offset-1">
@@ -63,4 +63,5 @@
             </div>
         </div>
         <script src="/template/js/bootstrap.js"></script>
+    </body>
 </html>

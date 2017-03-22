@@ -27,12 +27,12 @@ class Staff {
                 . "VALUES ('$tabNum','$surname','$name','$lastname','$proff','$education','$birthyear')";
         $db->query($resultStaff);
         if (count($instr) > 1) {
-            foreach ($instr as $val) {
-                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES ( NULL , $tabNum , $val)";
+            foreach ($instr as $val => $key) {
+                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES ( NULL , $tabNum , '$key')";
                 $db->query($resultStaffInstr);
             }
-        } else {
-            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES (NULL, $tabNum , $instr)";
+        } elseif (count($instr) == 1) {
+            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES (NULL, $tabNum , '$instr')";
             $db->query($resultStaffInstr);
         }
     }
