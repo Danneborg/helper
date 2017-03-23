@@ -69,8 +69,8 @@ body{
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!ЛОГИН СТИЛЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .login-block {
-    width: 320px;
-    padding: 20px;
+    width: 300px;
+    padding: 10px;
     background: #fff;
     border-radius: 5px;
     border-top: 5px solid #ff656c;
@@ -154,4 +154,8 @@ body{
 
 .margins{
     margin: 4px 4px 4px 4px;
+}
+.addsize{
+    margin-top: 20px;
+    height: 50px;
 }

@@ -23,16 +23,17 @@ class Staff {
         $tabNum = $meta['tabNum'];
         $proff = $meta['proff'];
         $education = $meta['education'];
-        $resultStaff = "INSERT INTO `Staff`(`tabNumber`, `surname`, `name`, `lastname`, `profession`, `education`, `birthyear`) "
-                . "VALUES ('$tabNum','$surname','$name','$lastname','$proff','$education','$birthyear')";
+        $resultStaff = "INSERT INTO `Staff`(`tabNumber` , `surname` , `name` , `lastname` , `profession` , `education` , `birthyear`) "
+                . "VALUES ('$tabNum' , '$surname' , '$name' , '$lastname' , '$proff' , '$education' , '$birthyear' )";
         $db->query($resultStaff);
         if (count($instr) > 1) {
             foreach ($instr as $val => $key) {
-                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES ( NULL , $tabNum , '$key')";
+                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum`) VALUES ( NULL , $tabNum , '$key')";       
                 $db->query($resultStaffInstr);
             }
+        
         } elseif (count($instr) == 1) {
-            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum`, `instrNum`) VALUES (NULL, $tabNum , '$instr')";
+            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum` ) VALUES (NULL, $tabNum , '$instr')"; 
             $db->query($resultStaffInstr);
         }
     }

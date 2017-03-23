@@ -1,4 +1,4 @@
-<html >
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,10 +17,10 @@
         <div class="logo"></div>
         <div class="login-block">
             <h1></h1>
-            <input type="text" value="Данила" placeholder="Фамилия" id="surname" />
-            <input type="text" value="Кононихин" placeholder="Имя" id="username" />
-            <input type="text" value="Сергеевич" placeholder="Отчество" id="lastname" />
-            <input type="text" value="03042" placeholder="Табельный номер" id="tabNum" />
-            <input type="text" value="Мастер участка" placeholder="Профессия" id="proff" />
+            <input type="text" value= "<?php echo $staff['surname']?>" placeholder="" id="surname" />
+            <input type="text" value="<?php echo $staff['name'] ?>" id="username" />
+            <input type="text" value="<?php echo $staff['lastname'] ?>" id="lastname" />
+            <input type="text" value="<?php echo $staff['tabNumber'] ?>" id="tabNum" />
+            <input type="text" value="<?php echo $staff['profession'] ?>" id="proff" />
         </div>
 </html>

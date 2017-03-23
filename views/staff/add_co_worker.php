@@ -16,52 +16,71 @@
         <header class="row col-lg-4 col-lg-offset-4">
             <h1 id="h1add">Добавление нового сотрудника</h1>
         </header>
-        <div class="container">
-            <div class="row">  
-                <div class="login-block col-lg-3 col-lg-offset-0">
-                    <form method="post" action="/worker/add" id = "add">
-                        <input type="text" name = "name" placeholder="Фамилия" required />
-                        <input type="text" name = "lastname" placeholder="Имя" required />
-                        <input type="text"  name = "surname" placeholder="Отчество" required />
-                        <input type="text"  name = "birthyear" placeholder="Год рождения" required/>
-                        <input type="text"  name = "tabNum" placeholder="Табельный номер" required/>
-                        <input type="text"  name = "proff" placeholder="Профессия" required />
-                        <input type="text"  name = "education" placeholder="Образование" required /> 
-                        <input type="submit" value="Добавить"   />
-                    </form>  
-                </div>
-                <!--!!!!!!!!!!!!!!!!!!Первый стоблец!!!!!!!!!!!!!!!!!!!!!-->
-                <div class="login-block col-lg-3 col-lg-offset-1">
-                    <?php for ($i = 0; $i < count($arr) / 2; $i++) { ?>
-                        <div class="margins">
-                            <font size = 2>
-                            <input type="checkbox" class="checkbox" 
-                                   id="<?php echo $i ?>" 
-                                   name ="<?php echo $arr[$i]['number'] ?>" 
-                                   value ="<?php echo $arr[$i]['number'] ?>" 
-                                   form="add"/>
-                            <label for="<?php echo $i ?>"><?php echo $arr[$i]['number'] . " " . $arr[$i]['name'] ?></label>
-                            </font>
-                        </div>
-                    <?php } ?>
-                </div>
-                <!--!!!!!!!!!!!!!!!!!!Второй стоблец!!!!!!!!!!!!!!!!!!!!!-->
-                <div class="login-block col-lg-3 col-lg-offset-1">
-                    <font size = 2>
-                    <?php for ($i = (count($arr) / 2); $i < count($arr); $i++) { ?>
-                        <div class="margins">
-                            <input type="checkbox" class="checkbox" 
-                                   id="<?php echo $i ?>" 
-                                   name ="<?php echo $arr[$i]['number'] ?>" 
-                                   value ="<?php echo $arr[$i]['number'] ?>" 
-                                   form="add" />
-                            <label for="<?php echo $i ?>"><?php echo $arr[$i]['number'] . " " . $arr[$i]['name'] ?></label>
-                        </div>
-                    <?php } ?>
-                    </font>
-                </div>
+        <div class="row col-lg-12 col-lg-offset-0">  
+            <div class="login-block col-lg-2 col-lg-offset-0">
+                <form method="post" action="/worker/add" id = "add">
+                    <input type="text" name = "name" placeholder="Фамилия" required />
+                    <input type="text" name = "lastname" placeholder="Имя" required />
+                    <input type="text"  name = "surname" placeholder="Отчество" required />
+                    <input type="text"  name = "birthyear" placeholder="Год рождения" required/>
+                    <input type="text"  name = "tabNum" placeholder="Табельный номер, пять цифр" required pattern="[0-9]{5}"/>
+                    <input type="text"  name = "proff" placeholder="Профессия" required />
+                    <input type="text"  name = "education" placeholder="Образование" required /> 
+                    <input type="submit" value="Добавить"   />
+                </form>  
+            </div>
+            <!--!!!!!!!!!!!!!!!!!!Первый стоблец!!!!!!!!!!!!!!!!!!!!!-->
+            <div class="login-block col-lg-2 col-lg-offset-1">
+                <?php for ($i = 0; $i < count($arr) / 3; $i++) { ?>
+                    <div class="margins">
+                        <font size = 2>
+                        <input type="checkbox" class="checkbox" 
+                               id="<?php echo $i ?>" 
+                               name ="<?php echo $arr[$i]['number'] ?>" 
+                               value ="<?php echo $arr[$i]['number'] ?>" 
+                               form="add"/>
+                        <label for="<?php echo $i ?>"><?php echo $arr[$i]['number'] . " " . $arr[$i]['name'] ?></label>
+                        </font>
+                    </div>
+                <?php } ?>
+            </div>
+            <!--!!!!!!!!!!!!!!!!!!Второй стоблец!!!!!!!!!!!!!!!!!!!!!-->
+            <div class="login-block col-lg-2 col-lg-offset-1">
+                <font size = 2>
+                <?php for ($i = (count($arr) / 3) + 1; $i < count($arr) - (count($arr) / 3); $i++) { ?>
+                    <div class="margins">
+                        <input type="checkbox" class="checkbox" 
+                               id="<?php echo $i ?>" 
+                               name ="<?php echo $arr[$i]['number'] ?>" 
+                               value ="<?php echo $arr[$i]['number'] ?>" 
+                               form="add" />
+                        <label for="<?php echo $i ?>"><?php echo $arr[$i]['number'] . " " . $arr[$i]['name'] ?></label>
+                    </div>
+                <?php } ?>
+                </font>
+            </div>
+            <!--!!!!!!!!!!!!!!!!!!Третий стоблец!!!!!!!!!!!!!!!!!!!!!-->
+            <div class="login-block col-lg-2 col-lg-offset-1">
+                <font size = 2>
+                <?php for ($i = (count($arr) - (count($arr) / 3)) + 1; $i < count($arr); $i++) { ?>
+                    <div class="margins">
+                        <input type="checkbox" class="checkbox" 
+                               id="<?php echo $i ?>" 
+                               name ="<?php echo $arr[$i]['number'] ?>" 
+                               value ="<?php echo $arr[$i]['number'] ?>" 
+                               form="add" />
+                        <label for="<?php echo $i ?>"><?php echo $arr[$i]['number'] . " " . $arr[$i]['name'] ?></label>
+                    </div>
+                <?php } ?>
+                </font>
             </div>
         </div>
+        <div class="row col-lg-6 col-lg-offset-3">
+            <button type="submit" form="add" class="btn btn-primary btn-lg btn-block">Добавить!</button>
+        </div>
+        <footer>
+            <a href="/startpage">На главную</a>
+        </footer>
         <script src="/template/js/bootstrap.js"></script>
     </body>
 </html>

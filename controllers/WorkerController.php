@@ -2,6 +2,7 @@
 
 include_once ROOT . '/models/Instruction.php';
 include_once ROOT . '/models/Staff.php';
+
 class WorkerController {
 
     public function actionIndex() {
@@ -26,14 +27,21 @@ class WorkerController {
         } else {
             $instr = array_shift($_POST);
         }
-        Staff::addWorker($staffMeta,$instr);
-        $arr = Instruction::getAllInstructions();
-        include_once '/views/staff/add_co_worker.php';
+        Staff::addWorker($staffMeta, $instr);
+//        $this->actionFill();
+        return true;
+    }
+
+    public function actionList() {
+        $staffList = array();
+        $staffList = Staff::getAllStaff();
+
+        require_once ROOT . "/views/staff/staffList.php";
         return true;
     }
 
     public function actionShow() {
-        
+
         return true;
     }
 

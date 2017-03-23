@@ -15,17 +15,11 @@
 
     <body>
         <h1></h1>
-        <?php foreach ($staffList as $staffItem): ?>
-            <div class="container">
+        <div class="row col-lg-10 col-lg-offset-1">
+            <?php foreach ($staffList as $staffItem): ?>
                 <div class="row">
-                    <div class="col-lg-10 col-lg-offset-1">
-                        <input type="text" value="<?php echo $staffItem['surname'] ?>" placeholder="<?php echo $staffItem['surname'] ?>" readonly="">
-                        <input type="text" value="<?php echo $staffItem['name'] ?>" readonly="">
-                        <input type="text" value="<?php echo $staffItem['lastname'] ?>" readonly="">
-                        <input type="text" value="<?php echo $staffItem['tabNumber'] ?>" readonly="">
-                        <input type="text" value="<?php echo $staffItem['profession'] ?>" readonly="">
-                    </div>
+                    <a class="btn btn-success" href="/staff/<?php echo $staffItem['tabNumber']; ?>"><?php echo $staffItem['lastname'] . "." . $staffItem['name'][0] . "." . $staffItem['surname'] . "."; ?></a>
                 </div>
-            </div>
-        <?php endforeach; ?>
+            <?php endforeach; ?>
+        </div>
 </html>
