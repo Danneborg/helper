@@ -15,21 +15,35 @@
 
     <body>
         <div class="logo"></div>
-        <h1>Редактирование <?php echo $staff['surname'] . ' ' . $staff['name'] ?></h1>
-        <div class="row">
-            <div class="col-lg-4 col-lg-offset-2">
+        <h1 class="bg-success">Редактирование <?php echo $staff['surname'] . ' ' . $staff['name'] ?></h1>
+        <div class="row col-lg-12">
+
+            <div class="col-lg-4 col-lg-offset-1">
                 <div class="login-block">
-                    <input type="text" value= "<?php echo $staff['surname'] ?>" placeholder="" id="surname" />
-                    <input type="text" value="<?php echo $staff['name'] ?>" id="username" />
-                    <input type="text" value="<?php echo $staff['lastname'] ?>" id="lastname" />
-                    <input type="text" value="<?php echo $staff['tabNumber'] ?>" id="tabNum" />
-                    <input type="text" value="<?php echo $staff['profession'] ?>" id="proff" />
+                    <form method="post" action="/staff/update" id = "update" >
+                        <input type="text" value= "<?php echo $staff['surname'] ?>" placeholder="" id="surname" />
+                        <input type="text" value="<?php echo $staff['name'] ?>" id="username" />
+                        <input type="text" value="<?php echo $staff['lastname'] ?>" id="lastname" />
+                        <input type="text" value="<?php echo $staff['tabNumber'] ?>" id="tabNum" />
+                        <input type="text" value="<?php echo $staff['profession'] ?>" id="proff" />
+                        <input type="submit" value="Обновить" />
+                    </form>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-2">
                 <div class="login-block">
-                    
+                    <?php for ($i = 0; $i < count($instrList); $i++) { ?>
+                    <input type="text" value= "<?php echo $instrList[$i]['instrNum'] ?>" readonly/>
+                    <?php } ?>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="login-block">
+                    <?php for ($i = 0; $i < count($instrList); $i++) { ?>
+                        <input type="text" value= "<?php echo $instrList[$i]['skill'] ?>" name="<?php echo $instrList[$i]['instrNum']; ?>" form="update" />
+                    <?php } ?>
                 </div>
             </div>
         </div>
 </html>
+<!--Разобраться с дублированием информации в базах данных,допилить обновление данных сотрудника и добавление к нему новых инструкций--!>

@@ -4,6 +4,7 @@ return array(
     'staff/([0-9]+)' => 'staff/view/$1', //actionView в StaffController
     'staff/fill' => 'staff/fill',
     'staff/add' => 'staff/add',
+    'staff/update' => 'staff/update',
     'startpage' => 'startpage/index', //actionIndex в StartpageController
     'instructions/addinstruction' => 'instructions/addinstr', //actionAddinstr в InstructionsController
     'instructions/show' => 'instructions/show', //

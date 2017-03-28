@@ -14,6 +14,22 @@ class Staff {
         }
     }
 
+    public static function getInstructionById($id) {
+        $db = Db::getConnection();
+        $tabNum = $id;
+        $result = $db->query("SELECT instrNum, skill FROM StaffInstr WHERE tabNum='$tabNum'");
+        $instrList = array();
+        $i = 0;
+        if (!empty($result)) {
+            while ($row = $result->fetch()) {
+                $instrList[$i]['instrNum'] = $row['instrNum'];
+                $instrList[$i]['skill'] = $row['skill'];
+                $i++;
+            }
+            return $instrList;
+        }
+    }
+
     public static function addWorker($meta, $instr) {
         $db = Db::getConnection();
         $name = $meta['name'];
@@ -28,12 +44,11 @@ class Staff {
         $db->query($resultStaff);
         if (count($instr) > 1) {
             foreach ($instr as $val => $key) {
-                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum`) VALUES ( NULL , $tabNum , '$key')";       
+                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum`) VALUES ( NULL , $tabNum , '$key')";
                 $db->query($resultStaffInstr);
             }
-        
         } elseif (count($instr) == 1) {
-            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum` ) VALUES (NULL, $tabNum , '$instr')"; 
+            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum` ) VALUES (NULL, $tabNum , '$instr')";
             $db->query($resultStaffInstr);
         }
     }

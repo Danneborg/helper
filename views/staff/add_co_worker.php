@@ -1,4 +1,4 @@
-<html >
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,12 +75,13 @@
                 </font>
             </div>
         </div>
-        <div class="row col-lg-6 col-lg-offset-3">
-            <button type="submit" form="add" class="btn btn-primary btn-lg btn-block">Добавить!</button>
+        <div class="navbar-fixed-bottom row-fluid col-lg-6 col-lg-offset-2">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-default" href="/startpage">На главную</a>
+                </div>
+            </div>
         </div>
-        <footer>
-            <a href="/startpage">На главную</a>
-        </footer>
         <script src="/template/js/bootstrap.js"></script>
     </body>
 </html>

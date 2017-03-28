@@ -17,11 +17,18 @@ class StaffController {
     public function actionView($id) {
         if ($id) {
             $staff = Staff::getStaffById($id);
+            $instrList = array();
+            $instrList = Staff::getInstructionById($id);
         }
         require_once ROOT . "/views/staff/co_worker.php";
         return true;
     }
-
+    public function actionUpdate() {
+        echo '<pre>';
+        print_r($_POST);
+        echo '</pre>';
+        return true;
+    }
     public function actionFill() {
         $arr = Instruction::getAllInstructions();
         include_once '/views/staff/add_co_worker.php';
