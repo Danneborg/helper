@@ -15,12 +15,21 @@
 
     <body>
         <div class="logo"></div>
-        <div class="login-block">
-            <h1></h1>
-            <input type="text" value= "<?php echo $staff['surname']?>" placeholder="" id="surname" />
-            <input type="text" value="<?php echo $staff['name'] ?>" id="username" />
-            <input type="text" value="<?php echo $staff['lastname'] ?>" id="lastname" />
-            <input type="text" value="<?php echo $staff['tabNumber'] ?>" id="tabNum" />
-            <input type="text" value="<?php echo $staff['profession'] ?>" id="proff" />
+        <h1>Редактирование <?php echo $staff['surname'] . ' ' . $staff['name'] ?></h1>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+                <div class="login-block">
+                    <input type="text" value= "<?php echo $staff['surname'] ?>" placeholder="" id="surname" />
+                    <input type="text" value="<?php echo $staff['name'] ?>" id="username" />
+                    <input type="text" value="<?php echo $staff['lastname'] ?>" id="lastname" />
+                    <input type="text" value="<?php echo $staff['tabNumber'] ?>" id="tabNum" />
+                    <input type="text" value="<?php echo $staff['profession'] ?>" id="proff" />
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="login-block">
+                    
+                </div>
+            </div>
         </div>
 </html>

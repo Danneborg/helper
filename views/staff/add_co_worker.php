@@ -18,7 +18,7 @@
         </header>
         <div class="row col-lg-12 col-lg-offset-0">  
             <div class="login-block col-lg-2 col-lg-offset-0">
-                <form method="post" action="/worker/add" id = "add">
+                <form method="post" action="/staff/add" id = "add">
                     <input type="text" name = "name" placeholder="Фамилия" required />
                     <input type="text" name = "lastname" placeholder="Имя" required />
                     <input type="text"  name = "surname" placeholder="Отчество" required />
