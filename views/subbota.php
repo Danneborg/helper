@@ -22,6 +22,13 @@
                 </div>
             </div>
         </div>
+        <div class="navbar-fixed-bottom row-fluid col-lg-6 col-lg-offset-2">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-default" href="/startpage">На главную</a>
+                </div>
+            </div>
+        </div>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="style/js/bootstrap.min.js"></script>
     </body>

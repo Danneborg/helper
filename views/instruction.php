@@ -43,6 +43,12 @@
         <script src="/template/js/bootstrap.min.js"></script>
     </body>
     <footer>
-        <a href="/startpage">На главную</a>
+        <div class="navbar-fixed-bottom row-fluid col-lg-6 col-lg-offset-2">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-default" href="/startpage">На главную</a>
+                </div>
+            </div>
+        </div>
     </footer>
 </html>

@@ -22,6 +22,7 @@
                         <p><a href="staff/fill">Добавление струдников</a></p>
                         <p><a href="views/subbota.php">Составление списка на субботу</a></p>
                         <p><a href="staff/list">Редактирование сотрудников</a></p>
+                        <p><a href="staff/box">ЧекБокс</a></p>
                     </h2>
                 </div>
             </div>

@@ -44,11 +44,11 @@ class Staff {
         $db->query($resultStaff);
         if (count($instr) > 1) {
             foreach ($instr as $val => $key) {
-                $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum`) VALUES ( NULL , $tabNum , '$key')";
+                $resultStaffInstr = "INSERT INTO `StaffInstr` (`tabNum`, `instrNum`) VALUES ('$tabNum', '$key')";
                 $db->query($resultStaffInstr);
             }
         } elseif (count($instr) == 1) {
-            $resultStaffInstr = "INSERT INTO `StaffInstr`(`id` , `tabNum` , `instrNum` ) VALUES (NULL, $tabNum , '$instr')";
+            $resultStaffInstr = "INSERT INTO `StaffInstr`(`tabNum` , `instrNum`) VALUES (`$tabNum`, '$instr')";
             $db->query($resultStaffInstr);
         }
     }

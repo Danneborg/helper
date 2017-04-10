@@ -20,18 +20,26 @@ class StaffController {
             $instrList = array();
             $instrList = Staff::getInstructionById($id);
         }
+        $arr = Instruction::getAllInstructions();
         require_once ROOT . "/views/staff/co_worker.php";
         return true;
     }
+
     public function actionUpdate() {
         echo '<pre>';
         print_r($_POST);
         echo '</pre>';
         return true;
     }
+
     public function actionFill() {
         $arr = Instruction::getAllInstructions();
         include_once '/views/staff/add_co_worker.php';
+        return true;
+    }
+
+    public function actionBox() {
+        include_once '/views/checkBox.php';
         return true;
     }
 
@@ -45,15 +53,19 @@ class StaffController {
         $staffMeta["proff"] = array_shift($_POST);
         $staffMeta["education"] = array_shift($_POST);
         $instr = array();
+        $i=0;
         if (count($_POST) > 1) {
             foreach ($_POST as $key => $NumInstr) {
-                $instr[] = $NumInstr;
+                $instr[$i]['number'] = $NumInstr;
+                $instr[$i]['name'] = Instruction::getInstructionNameByNumber($NumInstr);
+                $i++;
             }
         } else {
-            $instr = array_shift($_POST);
+            $numInstr = array_shift($_POST);
+            $instr[0]['number'] = $numInstr;
+            $instr[0]['name'] = Instruction::getInstructionNameByNumber($numInstr);
         }
-        Staff::addWorker($staffMeta, $instr);
-        $this->actionFill();
+        require_once ROOT . "/views/staff/final_check.php";
         return true;
     }
 

@@ -25,8 +25,17 @@ class Instruction {
         return $instrList;
     }
 
-    public function getInstructionByNumber($number) {
-        
+    public static function getInstructionNameByNumber($number) {
+        $db = Db::getConnection();
+        $result = $db->query("SELECT `name` FROM `Instructions` WHERE number = '$number' ");
+        $i = 0;
+        $nameList = array();
+        while ($row = $result->fetch()) {
+            $nameList[$i]['name'] = $row["name"];
+            $i++;
+        }
+        $name = $nameList[0]['name'];
+        return $name;
     }
 
 }
