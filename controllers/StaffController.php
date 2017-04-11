@@ -45,8 +45,8 @@ class StaffController {
 
     public function actionAdd() {
         $staffMeta = array();
-        $staffMeta["name"] = array_shift($_POST);
         $staffMeta["lastname"] = array_shift($_POST);
+        $staffMeta["name"] = array_shift($_POST);
         $staffMeta["surname"] = array_shift($_POST);
         $staffMeta["birthyear"] = array_shift($_POST);
         $staffMeta["tabNum"] = array_shift($_POST);

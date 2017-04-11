@@ -15,13 +15,13 @@
 
     <body>
         <div class="logo"></div>
-        <h1 class="bg-success text-center">Добавление <?php echo $staffMeta['surname'] . ' ' . $staffMeta['name'] ?></h1>
+        <h1 class="bg-success text-center">Добавление <?php echo $staffMeta['lastname'] . ' ' . $staffMeta['name'] ?></h1>
         <div class="row">
             <div class="col-lg-4 col-lg-offset-0">
                 <div class="login-block">
                     <form method="post" action="/staff/update" id = "update" >
-                        <input type="text" value= "<?php echo $staffMeta['name'] ?>" id="username" />
-                        <input type="text" value= "<?php echo $staffMeta['lastname'] ?>" id="lastname" />
+                        <input type="text" value= "<?php echo $staffMeta['lastname'] ?>" id="username" />
+                        <input type="text" value= "<?php echo $staffMeta['name'] ?>" id="lastname" />
                         <input type="text" value= "<?php echo $staffMeta['surname'] ?>" id="surname" />
                         <input type="text" value= "<?php echo $staffMeta['tabNum'] ?>" id="tabNum" />
                         <input type="text" value= "<?php echo $staffMeta['proff'] ?>" id="proff" />
@@ -30,19 +30,15 @@
                     </form>
                 </div>
             </div>
-            <div class="col-lg-3">
-                <div class="login-block">
-                    <?php for ($i = 0; $i < count($instr); $i++) { ?>
-                        <input type="text" value= "<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" readonly/>
-                    <?php } ?>
-                </div>
-            </div>
-            <div class="row col-lg-1">
-                <div class="login-block">
-                    <?php for ($i = 0; $i < count($instr); $i++) { ?>
-                        <input type="text" value= "" name="<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" form="update" />
-                    <?php } ?>
-                </div>
+            <div class="login-block col-lg-4 col-lg-offset-0">
+                <?php for ($i = 0; $i < count($instr); $i++) { ?>
+                    <input type="text" value= "<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" readonly/>
+                <?php } ?>
+            </div> 
+            <div class="login-block col-lg-1 col-lg-offset-0">
+                <?php for ($i = 0; $i < count($instr); $i++) { ?>
+                    <input type="text" value= "" name="<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" form="update" />
+                <?php } ?>
             </div>
         </div>
         <div class="navbar-fixed-bottom row-fluid col-lg-6 col-lg-offset-2">

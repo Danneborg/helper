@@ -40,7 +40,6 @@
                                value ="<?php echo $arr[$i]['number'] ?>" 
                                form="add"/>
                         <label for="<?php echo $i ?>"><?php echo $arr[$i]['number'] . " " . $arr[$i]['name'] ?></label>
-                        <!--<input type="text" name="<?php echo $arr[$i]['number']; ?>" form="add" />-->
                         </font>
                     </div>
                 <?php } ?>
