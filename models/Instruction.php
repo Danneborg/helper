@@ -25,7 +25,7 @@ class Instruction {
         return $instrList;
     }
     /*
-     * Получение инструкции по по ее номеру
+     * Получение инструкции по
      */
     public static function getInstructionNameByNumber($number) {
         $db = Db::getConnection();
