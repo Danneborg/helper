@@ -3,7 +3,8 @@
 return array(
     'staff/([0-9]+)' => 'staff/view/$1', //actionView в StaffController
     'staff/fill' => 'staff/fill',
-    'staff/add' => 'staff/add',
+    'staff/add' => 'staff/add', //actionAdd в StaffController
+    'staff/prepare' => 'staff/prepare', //actionAdd в StaffController
     'staff/update' => 'staff/update',
     'staff/box' => 'staff/box',
     'startpage' => 'startpage/index', //actionIndex в StartpageController

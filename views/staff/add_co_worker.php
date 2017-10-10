@@ -18,9 +18,9 @@
         </header>
         <div class="row col-lg-12 col-lg-offset-0">  
             <div class="login-block col-lg-2 col-lg-offset-0">
-                <form method="post" action="/staff/add" id = "add">
-                    <input type="text" name = "name" placeholder="Фамилия" required />
-                    <input type="text" name = "lastname" placeholder="Имя" required />
+                <form method="post" action="/staff/prepare" id = "add">
+                    <input type="text" name = "lastname" placeholder="Фамилия" required />
+                    <input type="text" name = "name" placeholder="Имя" required />
                     <input type="text"  name = "surname" placeholder="Отчество" required />
                     <input type="text"  name = "birthyear" placeholder="Год рождения" required/>
                     <input type="text"  name = "tabNum" placeholder="Табельный номер, пять цифр" required pattern="[0-9]{5}"/>

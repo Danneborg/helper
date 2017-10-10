@@ -14,31 +14,36 @@
     </head>
 
     <body>
+        <div>
+            <p><?php echo '<pre>';print_r($staffMeta);echo '</pre>';;?></p>
+            <p><?php echo '<pre>';print_r($instr);echo '</pre>';;?></p>
+        </div>
         <div class="logo"></div>
         <h1 class="bg-success text-center">Добавление <?php echo $staffMeta['lastname'] . ' ' . $staffMeta['name'] ?></h1>
         <div class="row">
             <div class="col-lg-4 col-lg-offset-0">
                 <div class="login-block">
-                    <form method="post" action="/staff/update" id = "update" >
-                        <input type="text" value= "<?php echo $staffMeta['lastname'] ?>" id="username" />
-                        <input type="text" value= "<?php echo $staffMeta['name'] ?>" id="lastname" />
-                        <input type="text" value= "<?php echo $staffMeta['surname'] ?>" id="surname" />
-                        <input type="text" value= "<?php echo $staffMeta['tabNum'] ?>" id="tabNum" />
-                        <input type="text" value= "<?php echo $staffMeta['proff'] ?>" id="proff" />
-                        <input type="text" value= "<?php echo $staffMeta['education'] ?>" id="proff" />
+                    <form method="post" action="/staff/add" id = "update" >
+                        <input type="text" name = "lastname" value= "<?php echo $staffMeta['lastname'] ?>" id="username" />
+                        <input type="text" name = "name" value= "<?php echo $staffMeta['name'] ?>" id="lastname" />
+                        <input type="text" name = "surname" value= "<?php echo $staffMeta['surname'] ?>" id="surname" />
+                        <input type="text" name = "birthyear" value= "<?php echo $staffMeta['birthyear'] ?>" id="surname" />
+                        <input type="text" name = "tabNum" value= "<?php echo $staffMeta['tabNum'] ?>" id="tabNum" />
+                        <input type="text" name = "proff" value= "<?php echo $staffMeta['proff'] ?>" id="proff" />
+                        <input type="text" name = "education" value= "<?php echo $staffMeta['education'] ?>" id="proff" />
                         <input type="submit" value="Добавить" />
                     </form>
                 </div>
             </div>
             <div class="login-block col-lg-4 col-lg-offset-0">
-                <?php for ($i = 0; $i < count($instr); $i++) { ?>
+<?php for ($i = 0; $i < count($instr); $i++) { ?>
                     <input type="text" value= "<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" readonly/>
                 <?php } ?>
             </div> 
             <div class="login-block col-lg-1 col-lg-offset-0">
-                <?php for ($i = 0; $i < count($instr); $i++) { ?>
+<?php for ($i = 0; $i < count($instr); $i++) { ?>
                     <input type="text" value= "" name="<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" form="update" />
-                <?php } ?>
+<?php } ?>
             </div>
         </div>
         <div class="navbar-fixed-bottom row-fluid col-lg-6 col-lg-offset-2">
