@@ -39,18 +39,38 @@ class Staff {
         $tabNum = $meta['tabNum'];
         $proff = $meta['proff'];
         $education = $meta['education'];
-        $resultStaff = "INSERT INTO `Staff`(`tabNumber` , `surname` , `name` , `lastname` , `profession` , `education` , `birthyear`) "
-                . "VALUES ('$tabNum' , '$surname' , '$name' , '$lastname' , '$proff' , '$education' , '$birthyear' )";
-        $db->query($resultStaff);
+        $error = false;
+        $res = $db->query("SELECT `tabNumber` FROM `Staff` WHERE tabNumber = '$tabNum' ");
+        $row_cnt = $res->fetch(PDO::FETCH_ASSOC);
+        if (!$row_cnt) {
+            $resultStaff = "INSERT INTO `Staff`(`tabNumber` , `surname` , `name` , `lastname` , `profession` , `education` , `birthyear`) "
+                    . "VALUES ('$tabNum' , '$surname' , '$name' , '$lastname' , '$proff' , '$education' , '$birthyear' )";
+            if ($db->query($resultStaff)) {
+                
+            } else {
+                $errors = true;
+            };
+        } else {
+            $errors = true;
+        }
         if (count($instr) > 1) {
-            foreach ($instr as $val => $key) {
-                $resultStaffInstr = "INSERT INTO `StaffInstr` (`tabNum`, `instrNum`) VALUES ('$tabNum', '$key')";
-                $db->query($resultStaffInstr);
+            foreach ($instr as $key => $val) {
+                $resultStaffInstr = "INSERT INTO `StaffInstr` (`tabNum`, `instrNum`, `skill`) VALUES ('$tabNum', '$key', '$val')";
+                if ($db->query($resultStaffInstr)) {
+                    
+                } else {
+                    $errors = true;
+                };
             }
         } elseif (count($instr) == 1) {
             $resultStaffInstr = "INSERT INTO `StaffInstr`(`tabNum` , `instrNum`) VALUES (`$tabNum`, '$instr')";
-            $db->query($resultStaffInstr);
+            if ($db->query($resultStaffInstr)) {
+                
+            } else {
+                $errors = true;
+            };
         }
+        return $error;
     }
 
     public static function getAllStaff() {

@@ -44,59 +44,32 @@ class StaffController {
     }
 
     public function actionPrepare() {
-//        $staffMeta = array();
-//        $staffMeta["lastname"] = array_shift($_POST);
-//        $staffMeta["name"] = array_shift($_POST);
-//        $staffMeta["surname"] = array_shift($_POST);
-//        $staffMeta["birthyear"] = array_shift($_POST);
-//        $staffMeta["tabNum"] = array_shift($_POST);
-//        $staffMeta["proff"] = array_shift($_POST);
-//        $staffMeta["education"] = array_shift($_POST);
-//        $instr = array();
-//        $i=0;
-//        if (count($_POST) > 1) {
-//            foreach ($_POST as $key => $NumInstr) {
-//                $instr[$i]['number'] = $NumInstr;
-//                $instr[$i]['name'] = Instruction::getInstructionNameByNumber($NumInstr);
-//                $i++;
-//            }
-//        } else {
-//            $numInstr = array_shift($_POST);
-//            $instr[0]['number'] = $numInstr;
-//            $instr[0]['name'] = Instruction::getInstructionNameByNumber($numInstr);
-//        }     
-        $data = $this->splitData();
-        $staffMeta = $data[0];
-        $instr = $data[1];
+        $staffMeta = $this->splitData();
+        $instr = array();
+        $i = 0;
+        if (count($_POST) > 1) {
+            foreach ($_POST as $key) {
+                $instr[$i]['number'] = $key;
+                $instr[$i]['name'] = Instruction::getInstructionNameByNumber($key);
+                $i++;
+            }
+        } elseif (count($_POST == 1)) {
+            $numInstr = array_shift($_POST);
+            $instr[0]['number'] = $numInstr;
+            $instr[0]['name'] = Instruction::getInstructionNameByNumber($numInstr);
+        }
         require_once ROOT . "/views/staff/final_check.php";
         return true;
     }
 
     public function actionAdd() {
-//        $staffMeta = array();
-//        $staffMeta["lastname"] = array_shift($_POST);
-//        $staffMeta["name"] = array_shift($_POST);
-//        $staffMeta["surname"] = array_shift($_POST);
-//        $staffMeta["birthyear"] = array_shift($_POST);
-//        $staffMeta["tabNum"] = array_shift($_POST);
-//        $staffMeta["proff"] = array_shift($_POST);
-//        $staffMeta["education"] = array_shift($_POST);
-//        $instr = array();
-//        $i=0;
-//        if (count($_POST) > 1) {
-//            foreach ($_POST as $key => $NumInstr) {
-//                $instr[$i]['number'] = $NumInstr;
-//                $instr[$i]['name'] = Instruction::getInstructionNameByNumber($NumInstr);
-//                $i++;
-//            }
-//        } else {
-//            $numInstr = array_shift($_POST);
-//            $instr[0]['number'] = $numInstr;
-//            $instr[0]['name'] = Instruction::getInstructionNameByNumber($numInstr);
-//        }
-        echo '<pre>';
-        $data = $this->splitData();
-        echo '</pre>';
+        $meta = $this->splitData();
+        $instr = $_POST;
+        if (Staff::addWorker($meta, $instr)) {
+            require_once ROOT . "/views/staff/warnig_add.php";
+        } else {
+            require_once ROOT . "/views/staff/correct_add.php";
+        }
         return true;
     }
 
@@ -117,22 +90,7 @@ class StaffController {
         $staffMeta["tabNum"] = array_shift($_POST);
         $staffMeta["proff"] = array_shift($_POST);
         $staffMeta["education"] = array_shift($_POST);
-        $instr = array();
-        $i = 0;
-        if (count($_POST) > 1) {
-            foreach ($_POST as $key => $NumInstr) {
-                $instr[$i]['number'] = $NumInstr;
-                $instr[$i]['name'] = Instruction::getInstructionNameByNumber($NumInstr);
-                $i++;
-            }
-        } else {
-            $numInstr = array_shift($_POST);
-            $instr[0]['number'] = $numInstr;
-            $instr[0]['name'] = Instruction::getInstructionNameByNumber($numInstr);
-        }
-        $data[0] = $staffMeta;
-        $data[1] = $instr;
-        return $data;
+        return $staffMeta;
     }
 
 }

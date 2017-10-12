@@ -14,10 +14,6 @@
     </head>
 
     <body>
-        <div>
-            <p><?php echo '<pre>';print_r($staffMeta);echo '</pre>';;?></p>
-            <p><?php echo '<pre>';print_r($instr);echo '</pre>';;?></p>
-        </div>
         <div class="logo"></div>
         <h1 class="bg-success text-center">Добавление <?php echo $staffMeta['lastname'] . ' ' . $staffMeta['name'] ?></h1>
         <div class="row">
@@ -35,15 +31,15 @@
                     </form>
                 </div>
             </div>
-            <div class="login-block col-lg-4 col-lg-offset-0">
-<?php for ($i = 0; $i < count($instr); $i++) { ?>
+            <div class="login-block col-lg-5 col-lg-offset-0">
+                <?php for ($i = 0; $i < count($instr); $i++) { ?>
                     <input type="text" value= "<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" readonly/>
                 <?php } ?>
             </div> 
             <div class="login-block col-lg-1 col-lg-offset-0">
-<?php for ($i = 0; $i < count($instr); $i++) { ?>
-                    <input type="text" value= "" name="<?php echo $instr[$i]['number'] . " " . $instr[$i]['name']; ?>" form="update" />
-<?php } ?>
+                <?php for ($i = 0; $i < count($instr); $i++) { ?>
+                <input type="text" name="<?php echo $instr[$i]['number'];?>" value="" form="update"/>
+                <?php } ?>
             </div>
         </div>
         <div class="navbar-fixed-bottom row-fluid col-lg-6 col-lg-offset-2">
